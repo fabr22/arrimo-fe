@@ -1,15 +1,12 @@
 import { useAuthContext } from "@/hooks/useAuthContext";
 import { Button, Checkbox, Form, Input } from "antd";
-import { useRouter } from "next/router";
+
 import Layout from "@/components/layout/layout";
 const Login = () => {
-  const router = useRouter();
-
   const { signIn } = useAuthContext();
 
   const onFinish = (values) => {
     signIn(values.username, values.password);
-    router.push("/");
   };
 
   const onFinishFailed = (errorInfo) => {

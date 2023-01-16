@@ -1,20 +1,39 @@
-import { Layout as AntLayout } from "antd";
+import { Button, Layout as AntLayout } from "antd";
 
 const { Header, Footer, Content } = AntLayout;
 import { useAuthContext } from "@/hooks/useAuthContext";
 import { useEffect, useState } from "react";
 
 const LayoutWithHeader = ({ children }) => {
-  const { user } = useAuthContext();
+  const { user, signOut } = useAuthContext();
 
   const [userI, setUserI] = useState();
   useEffect(() => {
     setUserI(user);
   }, [user]);
 
+  const handleLogout = () => {
+    signOut();
+  };
   return (
     <AntLayout>
-      <Header style={{ color: "white" }}>{userI}</Header>
+      <Header
+        style={{
+          display: "flex",
+          color: "white",
+          justifyContent: "end",
+          alignItems: "center",
+        }}
+      >
+        {userI}
+        <Button
+          type="primary"
+          onClick={handleLogout}
+          style={{ marginLeft: "10px" }}
+        >
+          Logout
+        </Button>
+      </Header>
       <Content
         style={{
           display: "flex",
