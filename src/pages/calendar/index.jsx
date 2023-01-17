@@ -11,6 +11,8 @@ import ModalAddEvent from "@/components/modal/modalAddEvent/ModalAddEvent";
 import { getItem, setItem } from "@/utils/localStorage";
 import { useAuthContext } from "@/hooks/useAuthContext";
 
+import "../../styles/users.module.css";
+
 const Calendar = () => {
   const { user } = useAuthContext();
   const [events, setEvents] = useState(getItem(`user-events-${user}`) ?? []);
@@ -42,7 +44,7 @@ const Calendar = () => {
   };
 
   return (
-    <>
+    <div className="calendarWrapper">
       <FullCalendar
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
         headerToolbar={{
@@ -72,7 +74,7 @@ const Calendar = () => {
         setIsAddOpen={setIsAddOpen}
         newEvent={newEvent}
       />
-    </>
+    </div>
   );
 };
 

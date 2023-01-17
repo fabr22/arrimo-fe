@@ -25,3 +25,11 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+.fc .fc-toolbar.fc-header-toolbar {
+  width: 600px;
+}
+
+.fc-direction-ltr {
+  margin-bottom: 10px;
+}

@@ -58,7 +58,7 @@ const ModalAddUser = ({ addNewUser }) => {
             rules={[
               {
                 required: true,
-                message: "Please name!",
+                message: "Please enter a name!",
               },
             ]}
           >

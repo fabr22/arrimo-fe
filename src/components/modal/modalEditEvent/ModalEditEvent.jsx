@@ -44,8 +44,11 @@ const ModalEditEvent = ({ open, setIsModalOpen, editedEvent }) => {
           value={value}
           onChange={handleChange}
           defaultValue={editedEvent ? editedEvent?.event?.title : ""}
+          style={{ marginBottom: "10px" }}
         />
-        <Button onClick={handleDelete}>Delete</Button>
+        <Button onClick={handleDelete} style={{ marginRight: "10px" }}>
+          Delete
+        </Button>
         <Button onClick={handleEdit}>Save</Button>
       </Modal>
     </>

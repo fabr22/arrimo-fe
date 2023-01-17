@@ -43,7 +43,11 @@ const ModalAddEvent = ({ open, setIsAddOpen, newEvent }) => {
         footer={[]}
       >
         Add event
-        <Input value={value} onChange={handleChange} />
+        <Input
+          value={value}
+          onChange={handleChange}
+          style={{ marginBottom: "10px" }}
+        />
         <Button onClick={handleAdd}>Add</Button>
       </Modal>
     </>
