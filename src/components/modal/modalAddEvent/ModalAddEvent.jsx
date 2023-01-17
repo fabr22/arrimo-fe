@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Input, Modal } from "antd";
-import { createEventId } from "@/pages/calendar/event-utils";
+import { createEventId } from "@/utils/event-utils";
 
 const ModalAddEvent = ({ open, setIsAddOpen, newEvent }) => {
   const [value, setValue] = useState("");
