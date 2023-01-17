@@ -34,7 +34,7 @@ const ModalEditUser = ({ user, editUser }) => {
       <EditOutlined style={iconStyle} onClick={showModal} />
 
       <Modal
-        title="Basic Modal"
+        title="Edit user"
         open={isModalOpen}
         onOk={handleOk}
         onCancel={handleCancel}

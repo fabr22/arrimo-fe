@@ -7,6 +7,8 @@ import { DeleteOutlined } from "@ant-design/icons";
 import { getItem, setItem } from "@/utils/localStorage";
 import ModalAddUser from "@/components/modal/modalAddUser/ModalAddUser";
 import ModalEditUser from "@/components/modal/modalEditUser/ModalEditUser";
+import BackButton from "@/components/backButton/BackButton";
+import { useAuthContext } from "@/hooks/useAuthContext";
 
 const { Title } = Typography;
 const { Column } = Table;
@@ -16,9 +18,10 @@ const iconStyle = {
 
 const Users = () => {
   const [users, setUsers] = useState([]);
+  const { user } = useAuthContext();
 
   useEffect(() => {
-    const users = getItem("arrimo-users");
+    const users = getItem(`arrimo-users-${user}`);
     if (users) {
       setUsers(users);
     }
@@ -36,24 +39,24 @@ const Users = () => {
       return [...prev];
     });
 
-    const oldList = getItem("arrimo-users");
+    const oldList = getItem(`arrimo-users-${user}`);
     if (!oldList) {
-      setItem("arrimo-users", [newUser]);
+      setItem(`arrimo-users-${user}`, [newUser]);
       return;
     }
 
     const newList = [...oldList, newUser];
 
-    setItem("arrimo-users", newList);
+    setItem(`arrimo-users-${user}`, newList);
   };
 
   const handleDeleteUser = (key) => {
     setUsers((prev) => {
       return [...prev.filter((el) => el.key !== key)];
     });
-    const oldList = getItem("arrimo-users");
+    const oldList = getItem(`arrimo-users-${user}`);
     const newList = oldList.filter((el) => el.key !== key);
-    setItem("arrimo-users", newList);
+    setItem(`arrimo-users-${user}`, newList);
   };
 
   const handleEditUser = (user) => {
@@ -65,20 +68,24 @@ const Users = () => {
         ...prev.slice(idxUpdatedUser + 1),
       ];
     });
-    const oldList = getItem("arrimo-users");
+    const oldList = getItem(`arrimo-users-${user}`);
     const newList = [
       ...oldList.slice(0, idxUpdatedUser),
       { ...user },
       ...oldList.slice(idxUpdatedUser + 1),
     ];
-    setItem("arrimo-users", newList);
+    setItem(`arrimo-users-${user}`, newList);
   };
 
   return (
     <>
       <Title>Users</Title>
       <ModalAddUser addNewUser={handleAddNewUser} />
-      <Table dataSource={users} pagination={false} style={{ width: "30%" }}>
+      <Table
+        dataSource={users}
+        pagination={false}
+        style={{ width: "30%", margin: "15px" }}
+      >
         <Column title="Name" dataIndex="name" key="name" align="center" />
         <Column title="Age" dataIndex="age" key="age" align="center" />
         <Column
@@ -98,6 +105,7 @@ const Users = () => {
           }}
         />
       </Table>
+      <BackButton />
     </>
   );
 };
