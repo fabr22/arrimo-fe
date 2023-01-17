@@ -1,38 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+App is deployed here - arrimo-fe.vercel.app
 
-## Getting Started
 
-First, run the development server:
+If you want to start it localy you need istall all dependecies - "npm install", after that you can start with command "npm run dev"
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+You need to enter any username and password. Now you are in main page, in header you can see your user name and can logout from app, in the middle of the page 
+two cards. Click a card and you move to a page, depends what card you click.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Users page: 
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+You can add new user, just click on button 'Add new user' enter name of new user(this field is required) and click "Add" button, as you can see in table appear a new
+user.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+In actions as you can see two icons. If you click on icon with pencil you can edit user(enter a new name, age and after that click "Edit" button) and if you click trash icon you delete user.
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Calendar page: 
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+Select a day or days(hold down the left mouse button and move to end day of event) after enter a name of event in modal and click "Add" button.
+
+
+You can change a size of event - hover over the end of the event and hold down the left mouse button and change the size of the event.
+
+
+You can move your event to the other dates. Hover on event, hold down the left mouse button and move to dates what you need.
+
+
+Also you can edit name or delete event. Just click on event : if you want to delete event click on "Delete" button, if you want to change name - enter a new name in input and click on "Save button"
